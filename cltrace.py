@@ -14,9 +14,10 @@ class mrWordCount(MRJob):
 
     def reducer(self, key, values):
        values = list(values)
+       response =  0
        if len(values) == 3:
-        yield values[1], np.mean(values[2]-values[0])
-
+        response = stat.mean(values[2]-values[0])
+       yield values[1] , response
 
 #         yield key, values[0]
 
