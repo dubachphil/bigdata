@@ -12,7 +12,7 @@ class MRAvgPairwiseLines(MRJob):
        if "time" not in line:
          yield column[1] + "/" + column[2], (int(column[6])) 
        if "msg_snd" in line:
-         yield column[1] + "/" + column[2], ((int(column[6])//1000)*60)
+         yield column[1] + "/" + column[2], ((int(column[6])//1000//60)*60)
 
     # 1x Nach Paarschlüssel die Differenz von Senden und Empfangen weitergeben,
     # sowie den neuen Schlüssel für den zweiten Mapper
